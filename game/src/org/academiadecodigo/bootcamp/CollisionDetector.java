@@ -1,19 +1,19 @@
 package org.academiadecodigo.bootcamp;
 
-import org.academiadecodigo.bootcamp.gameobjects.Obstacle;
+import org.academiadecodigo.bootcamp.gameobjects.Asteroid;
 import org.academiadecodigo.bootcamp.grid.position.GridPosition;
 
 public class CollisionDetector {
 
-    private Obstacle[] obstacle;
+    private Asteroid[] obstacle;
 
-    public CollisionDetector(Obstacle[] obstacle) {
+    public CollisionDetector(Asteroid[] obstacle) {
         this.obstacle = obstacle;
     }
 
     public boolean isUnSafe(GridPosition pos) {
 
-        for (Obstacle c : obstacle) {
+        for (Asteroid c : obstacle) {
 
             if (c.getPos()!= pos && c.getPos().equals(pos)) {
                 return true;
@@ -30,9 +30,9 @@ public class CollisionDetector {
      * Requires iterating the array once
      * @param obstacle
      */
-    public void check(Obstacle obstacle) {
+    public void check(Asteroid obstacle) {
 
-        /*for (Obstacle ic : obstacle) {
+        /*for (Asteroid ic : obstacle) {
 
             // No point in checking collisions with self
             if (ic == obstacle) {

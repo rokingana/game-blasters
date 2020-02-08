@@ -5,7 +5,7 @@ import org.academiadecodigo.bootcamp.grid.position.GridPosition;
 /**
  * Fiat is not a very fast or reliable car and may break after some time.
  */
-public class Obstacle extends GameObject {
+public class Asteroid extends GameObject {
 
     public final static int SPEED = 1;
     private final static int MOVES_BEFORE_BREAK = 30;
@@ -17,7 +17,7 @@ public class Obstacle extends GameObject {
      *
      * @param pos the position of the car in the grid
      */
-    public Obstacle(GridPosition pos) {
+    public Asteroid(GridPosition pos) {
         super(pos, ObstacleType.GENERIC);
     }
 
@@ -27,7 +27,7 @@ public class Obstacle extends GameObject {
      * @param pos          the initial car position
      * @param obstacleType the car type
      */
-    public Obstacle(GridPosition pos, ObstacleType obstacleType) {
+    public Asteroid(GridPosition pos, ObstacleType obstacleType) {
         super(pos, obstacleType);
     }
 
@@ -40,7 +40,7 @@ public class Obstacle extends GameObject {
         moves++;
 
         if (moves < MOVES_BEFORE_BREAK || moves % BREAK_INTERVAL != 0) {
-            accelerate(chooseDirection(), Obstacle.SPEED);
+            //accelerate(chooseDirection(), Asteroid.SPEED);
         }
 
     }

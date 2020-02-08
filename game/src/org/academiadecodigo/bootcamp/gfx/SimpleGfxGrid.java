@@ -2,13 +2,14 @@ package org.academiadecodigo.bootcamp.gfx;
 
 import org.academiadecodigo.bootcamp.grid.Grid;
 import org.academiadecodigo.bootcamp.grid.position.GridPosition;
+import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class SimpleGfxGrid implements Grid {
 
     public static final int PADDING = 10;
-    public static final int cellSize = 25;
+    public static final int cellSize = 10;
     private int cols;
     private int rows;
     Rectangle grid;
@@ -27,14 +28,16 @@ public class SimpleGfxGrid implements Grid {
     @Override
     public void init() {
 
-        background = new Picture(0+PADDING,0+PADDING, "background22.png");
+        background = new Picture(0+PADDING,0+PADDING, "background2.jpg");
         background.draw();
 
-        /*
 
-        grid2 = new Rectangle(PADDING,PADDING, cols * cellSize, rows * cellSize);
-        grid2.draw();
-        grid2.fill();*/
+        /*
+        grid = new Rectangle(PADDING,PADDING, cols * cellSize, rows * cellSize);
+        grid.draw();
+        grid.fill();
+        grid.setColor(Color.BLUE);
+        */
     }
 
     /**

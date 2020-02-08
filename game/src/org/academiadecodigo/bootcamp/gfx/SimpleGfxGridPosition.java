@@ -31,7 +31,9 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
 
         simpleGfxGrid = grid;
 
-        car = new Picture(simpleGfxGrid.columnToX(getCol()), simpleGfxGrid.rowToY(getRow()), "mustang-right.png");
+
+        rectangle = new Rectangle(simpleGfxGrid.columnToX(getCol()), simpleGfxGrid.rowToY(getRow()), simpleGfxGrid.getCellSize(), simpleGfxGrid.getCellSize());
+        //car = new Picture(simpleGfxGrid.columnToX(getCol()), simpleGfxGrid.rowToY(getRow()), "mustang-right.png");
         show();
     }
 
@@ -58,8 +60,8 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
      */
     @Override
     public void show() {
-        //rectangle.fill();
-        car.draw();
+        rectangle.fill();
+        //car.draw();
 
 
     }
@@ -69,8 +71,8 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
      */
     @Override
     public void hide() {
-        car.delete();
-        //rectangle.delete();
+        //car.delete();
+        rectangle.delete();
     }
 
     /**
@@ -88,7 +90,7 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
         int yF = simpleGfxGrid.rowToY(getRow());
 
         //rectangle.translate(xF-xI, yF-yI);
-        car.translate(xF - xI, yF - yI);
+        rectangle.translate(xF - xI, yF - yI);
 
 
         /*
@@ -121,10 +123,10 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
         //rectangle.setColor(SimpleGfxColorMapper.getColor(color));
         //mustangUP
 
-
+        /*
         if (getColor() == GridColor.RED) {
             car.load("carcrash.png");
-        } /*else if (getColor() == GridColor.BLUE){
+        } else if (getColor() == GridColor.BLUE){
             car.load("fiat.png");
         }*/
         //mustangRight.load((getColor() == GridColor.RED) ? "carcrash2.png" : "mustang-right.png");

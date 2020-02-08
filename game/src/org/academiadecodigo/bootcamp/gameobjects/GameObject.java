@@ -19,13 +19,13 @@ abstract public class GameObject {
 
     // Allow direct access from subclasses
     protected CollisionDetector collisionDetector;
-    protected GridDirection currentDirection;
+    protected GridDirection currentPosition;
 
     /**
-     * Constructs a new car
+     * Constructs a new obstacle
      *
      * @param pos     the initial car position
-     * @param obstacleType the car type
+     * @param obstacleType the obstacle type
      */
     public GameObject(GridPosition pos, ObstacleType obstacleType) {
 
@@ -33,7 +33,7 @@ abstract public class GameObject {
         this.obstacleType = obstacleType;
 
         pos.setColor(obstacleType.getColor());
-        currentDirection = GridDirection.values()[(int) (Math.random() * GridDirection.values().length)];
+        currentPosition = GridDirection.values()[(int) (Math.random() * GridDirection.values().length)];
 
     }
 
@@ -58,7 +58,7 @@ abstract public class GameObject {
     }
 
     /**
-     * Sets the car into a crashed state
+     * Sets the obstacle into a crashed state
      */
     public void crash() {
 
@@ -79,17 +79,19 @@ abstract public class GameObject {
      *
      * @return the new direction
      */
+
+    /*
     public GridDirection chooseDirection() {
 
         // Let's move in the same direction by default
-        GridDirection newDirection = currentDirection;
+        GridDirection newDirection = currentPosition;
 
         // Sometimes, we want to change direction...
         if (Math.random() > ((double) directionChangeLevel) / 10) {
             newDirection = GridDirection.values()[(int) (Math.random() * GridDirection.values().length)];
 
             // but we do not want to perform U turns..
-            if (newDirection.isOpposite(currentDirection)) {
+            if (newDirection.isOpposite(currentPosition)) {
                 return chooseDirection();
             }
         }
@@ -97,15 +99,30 @@ abstract public class GameObject {
         return newDirection;
 
     }
+    */
 
     /**
      * Accelerates the car towards a specific direction,
      * as long as we have not bumped against the wall,
      * in which case we bounce back
      *
-     * @param direction the direction to which accelerate
-     * @param speed     the speed to accelerate at
+     *  direction the direction to which accelerate
+     *  speed     the speed to accelerate at
      */
+
+    public void move(GridDirection direction, int speed){
+
+        GridDirection newDirection = direction;
+
+        this.currentPosition = newDirection;
+
+        for (int i = grid.getCols(); i < speed; i--) {
+            getPos().moveInDirection(newDirection, 1);
+        }
+
+    }
+
+    /*
     public void accelerate(GridDirection direction, int speed) {
 
         // Crashed cars can not accelerate
@@ -121,7 +138,7 @@ abstract public class GameObject {
         }
 
         // Accelerate in the choosen direction
-        this.currentDirection = newDirection;
+        this.currentPosition = newDirection;
         for (int i = 0; i < speed; i++) {
             getPos().moveInDirection(newDirection, 1);
             if (collisionDetector.isUnSafe(getPos())){
@@ -130,7 +147,7 @@ abstract public class GameObject {
             }
         }
 
-    }
+    }*/
 
     /**
      * Detects if the car is hitting the field wall
@@ -139,7 +156,7 @@ abstract public class GameObject {
      */
     public boolean isHittingWall() {
 
-        switch (currentDirection) {
+        switch (currentPosition) {
             case LEFT:
                 if (getPos().getCol() == 0) {
                     return true;

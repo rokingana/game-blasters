@@ -7,7 +7,7 @@ import org.academiadecodigo.bootcamp.grid.GridColor;
  */
 public enum ObstacleType {
 
-    ASTEROID(GridColor.BLUE),
+    ASTEROID(GridColor.YELLOW),
     GENERIC(GridColor.GREEN);
 
     private GridColor color;
