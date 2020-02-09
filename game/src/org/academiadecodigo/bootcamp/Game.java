@@ -20,7 +20,7 @@ public class Game {
 
         grid = GridFactory.makeGrid(cols, rows);
         this.delay = delay;
-        numberOfObstacles = grid.getRows()-1;
+        numberOfObstacles = grid.getRows()-2;
 
     }
 
@@ -30,6 +30,7 @@ public class Game {
         grid.init();
 
         gameObject = new GameObject[numberOfObstacles];
+        //XWing xwing = new XWing(grid.makeGridPosition(0,grid.getRows()/2));
 
         for (int i = 0; i < numberOfObstacles; i++) {
 

@@ -5,7 +5,9 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Main {
     public static void main(String[] args) {
-        Rectangle rectangle = new Rectangle();
-        rectangle.fill();
+
+        Game game = new Game (100,50,200);
+
+        game.init();
     }
 }

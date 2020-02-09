@@ -69,8 +69,10 @@ abstract public class GameObject {
 
     }
 
+
     /**
      * Perform specific moving behaviour according to the car type
+     *
      */
     abstract public void move();
 
@@ -112,12 +114,14 @@ abstract public class GameObject {
 
     public void move(GridDirection direction, int speed){
 
-        GridDirection newDirection = direction;
+        // Let's move in the same direction by default
+       GridDirection newDirection = direction;
 
         this.currentPosition = newDirection;
 
         for (int i = grid.getCols(); i < speed; i--) {
-            getPos().moveInDirection(newDirection, 1);
+            //getPos().moveInDirection(leftDirection, 1);
+            getPos().moveInDirection(GridDirection.LEFT, 1);
         }
 
     }
