@@ -17,7 +17,7 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
     private Rectangle rectangle;
     private SimpleGfxGrid simpleGfxGrid;
 
-    private Picture car;
+    private Picture asteroid;
 
     /**
      * Simple graphics position constructor
@@ -32,8 +32,8 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
         simpleGfxGrid = grid;
 
 
-        rectangle = new Rectangle(simpleGfxGrid.columnToX(getCol()), simpleGfxGrid.rowToY(getRow()), simpleGfxGrid.getCellSize(), simpleGfxGrid.getCellSize());
-        //car = new Picture(simpleGfxGrid.columnToX(getCol()), simpleGfxGrid.rowToY(getRow()), "mustang-right.png");
+        //rectangle = new Rectangle(simpleGfxGrid.columnToX(getCol()), simpleGfxGrid.rowToY(getRow()), simpleGfxGrid.getCellSize(), simpleGfxGrid.getCellSize());
+        asteroid = new Picture(simpleGfxGrid.columnToX(getCol()), simpleGfxGrid.rowToY(getRow()), "asteroid.png");
         show();
     }
 
@@ -60,8 +60,8 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
      */
     @Override
     public void show() {
-        rectangle.fill();
-        //car.draw();
+        //rectangle.fill();
+        asteroid.draw();
 
 
     }
@@ -71,8 +71,8 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
      */
     @Override
     public void hide() {
-        //car.delete();
-        rectangle.delete();
+        asteroid.delete();
+        //rectangle.delete();
     }
 
     /**
@@ -90,7 +90,7 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
         int yF = simpleGfxGrid.rowToY(getRow());
 
         //rectangle.translate(xF-xI, yF-yI);
-        rectangle.translate(xF - xI, yF - yI);
+        asteroid.translate(xF - xI, yF - yI);
 
 
         /*

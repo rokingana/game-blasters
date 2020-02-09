@@ -14,12 +14,13 @@ public class Game {
     private GameObject[] gameObject;
     private XWing xWing;
     private int delay;
-    private int numberOfObstacles = 5;//Need to be grid.getRows()-1;
+    private int numberOfObstacles;
 
     public Game(int cols, int rows, int delay){
 
         grid = GridFactory.makeGrid(cols, rows);
         this.delay = delay;
+        numberOfObstacles = grid.getRows()-1;
 
     }
 

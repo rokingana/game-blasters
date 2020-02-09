@@ -28,7 +28,7 @@ public class SimpleGfxGrid implements Grid {
     @Override
     public void init() {
 
-        background = new Picture(0+PADDING,0+PADDING, "background2.jpg");
+        background = new Picture(0+PADDING,0+PADDING, "background.jpg");
         background.draw();
 
 
