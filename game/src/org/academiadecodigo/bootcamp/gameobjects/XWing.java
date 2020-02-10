@@ -38,6 +38,20 @@ public class XWing implements KeyboardHandler {
 
         xWing.draw();
 
+        KeyboardHandler xWingKey = new XWing(getPos());
+        Keyboard k = new Keyboard(xWingKey);
+
+        KeyboardEvent eventUp = new KeyboardEvent();
+        eventUp.setKey(KeyboardEvent.KEY_UP);
+        eventUp.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        k.addEventListener(eventUp);
+
+        KeyboardEvent eventDown = new KeyboardEvent();
+        eventDown.setKey(KeyboardEvent.KEY_DOWN);
+        eventDown.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        k.addEventListener(eventDown);
+
+        /*
         KeyboardEvent xWingKey = new KeyboardEvent();
         xWingKey.setKey(KeyboardEvent.KEY_UP);
         xWingKey.setKey(KeyboardEvent.KEY_DOWN);
@@ -46,6 +60,7 @@ public class XWing implements KeyboardHandler {
         xWingKey.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
         keyboard.addEventListener(xWingKey);
+        */
     }
 
     public void setGrid(Grid grid) {
@@ -91,8 +106,9 @@ public class XWing implements KeyboardHandler {
         return false;
 
     }
-    @Override
-    /*public void keyPressed(KeyboardEvent keyboardEvent) {
+
+    /*@Override
+    public void keyPressed(KeyboardEvent keyboardEvent) {
 
         switch (keyboardEvent.getKey()) {
             case KeyboardEvent.KEY_LEFT:
@@ -122,8 +138,14 @@ public class XWing implements KeyboardHandler {
         }
     }*/
 
-
+    @Override
     public void keyPressed(KeyboardEvent e) {
+
+
+        xWing.translate(0,10);
+        //xWing.translate(10,0);
+        //xWing.translate(0,-10);
+        //xWing.translate(-10,0);
 
         /*int distance = 5;
 

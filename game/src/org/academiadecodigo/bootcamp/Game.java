@@ -1,9 +1,6 @@
 package org.academiadecodigo.bootcamp;
 
-import org.academiadecodigo.bootcamp.gameobjects.GameObject;
-import org.academiadecodigo.bootcamp.gameobjects.ObjectFactory;
-import org.academiadecodigo.bootcamp.gameobjects.ObstacleType;
-import org.academiadecodigo.bootcamp.gameobjects.XWing;
+import org.academiadecodigo.bootcamp.gameobjects.*;
 import org.academiadecodigo.bootcamp.grid.Grid;
 import org.academiadecodigo.bootcamp.grid.GridDirection;
 import org.academiadecodigo.bootcamp.grid.GridFactory;
@@ -23,19 +20,35 @@ public class Game{
     private GridPosition gridPosition;
     private int delay;
     private int numberOfObstacles;
-    private XWing xWing;
+    private Xwing2 xWing;
 
     public Game(int cols, int rows, int delay){
 
         grid = GridFactory.makeGrid(cols, rows);
         this.delay = delay;
         numberOfObstacles = grid.getRows()/2;
+        this.xWing = new Xwing2();
     }
 
 
     public void init() {
 
         grid.init();
+
+
+
+        KeyboardHandler kX = new Xwing2();
+        Keyboard k = new Keyboard(kX);
+
+        KeyboardEvent eventDown = new KeyboardEvent();
+        eventDown.setKey(KeyboardEvent.KEY_DOWN);
+        eventDown.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        k.addEventListener(eventDown);
+
+        KeyboardEvent eventUp = new KeyboardEvent();
+        eventUp.setKey(KeyboardEvent.KEY_UP);
+        eventUp.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        k.addEventListener(eventUp);
 
         gameObject = new GameObject[numberOfObstacles];
 
@@ -45,8 +58,6 @@ public class Game{
             gameObject[i].setGrid(grid);
 
         }
-
-        //xWing = new XWing(gridPosition);
     }
 
     public void start(){
