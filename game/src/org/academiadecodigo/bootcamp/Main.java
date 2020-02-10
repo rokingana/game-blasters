@@ -10,9 +10,11 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 public class Main {
     public static void main(String[] args) {
 
-        Game game = new Game (100,50,200);
+        Game game = new Game (50,20,200);
 
         game.init();
         game.start();
+
+
     }
 }

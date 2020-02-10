@@ -26,7 +26,7 @@ public class Game{
 
         grid = GridFactory.makeGrid(cols, rows);
         this.delay = delay;
-        numberOfObstacles = grid.getRows()/2;
+        numberOfObstacles = grid.getRows()/3;
         this.xWing = new Xwing2();
     }
 
@@ -48,12 +48,10 @@ public class Game{
         eventUp.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         k.addEventListener(eventUp);
 
-
         KeyboardEvent eventLeft = new KeyboardEvent();
         eventLeft.setKey(KeyboardEvent.KEY_LEFT);
         eventLeft.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         k.addEventListener(eventLeft);
-
 
         KeyboardEvent eventRight = new KeyboardEvent();
         eventRight.setKey(KeyboardEvent.KEY_RIGHT);
@@ -63,11 +61,11 @@ public class Game{
         gameObject = new GameObject[numberOfObstacles];
 
         for (int i = 0; i < numberOfObstacles; i++) {
-
-            gameObject[i] = ObjectFactory.getNewObject(grid);
-            gameObject[i].setGrid(grid);
-
+                    gameObject[i] = ObjectFactory.getNewObject(grid);
+                    gameObject[i].setGrid(grid);
         }
+
+        System.out.println(grid.getCols());
     }
 
     public void start(){

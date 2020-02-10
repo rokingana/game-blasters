@@ -19,12 +19,14 @@ public class ObjectFactory {
 
         int random = (int) (Math.random() * ObstacleType.values().length);
 
-        ObstacleType carType = ObstacleType.values()[random];
+        int spawn = grid.getCols();
+
+        ObstacleType obstacleType = ObstacleType.values()[random];
 
 
         GameObject gameObject;
 
-        switch (carType) {
+        switch (obstacleType) {
             case ASTEROID:
                 gameObject = new Asteroid(grid.makeGridPosition());
                 break;

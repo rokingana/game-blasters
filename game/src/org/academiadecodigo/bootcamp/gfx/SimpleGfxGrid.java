@@ -9,7 +9,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class SimpleGfxGrid implements Grid {
 
     public static final int PADDING = 10;
-    public static final int cellSize = 10;
+    public static final int cellSize = 35;
     private int cols;
     private int rows;
     Rectangle grid;
