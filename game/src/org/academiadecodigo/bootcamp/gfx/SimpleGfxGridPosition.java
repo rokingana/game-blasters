@@ -14,7 +14,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
  */
 public class SimpleGfxGridPosition extends AbstractGridPosition {
 
-    private Rectangle rectangle;
+    //private Rectangle rectangle;
     private SimpleGfxGrid simpleGfxGrid;
 
     private Picture asteroid;
@@ -35,7 +35,7 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
 
         //rectangle = new Rectangle(simpleGfxGrid.columnToX(getCol()), simpleGfxGrid.rowToY(getRow()), simpleGfxGrid.getCellSize(), simpleGfxGrid.getCellSize());
         asteroid = new Picture(simpleGfxGrid.columnToX(getCol()), simpleGfxGrid.rowToY(getRow()), "asteroid.png");
-        xWing = new Picture(2*simpleGfxGrid.getCellSize(), (simpleGfxGrid.getRows())/2*simpleGfxGrid.getCellSize(), "xwing.png");
+        //xWing = new Picture(2*simpleGfxGrid.getCellSize(), (simpleGfxGrid.getRows())/2*simpleGfxGrid.getCellSize(), "xwing.png");
         show();
     }
 
@@ -51,7 +51,7 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
 
         simpleGfxGrid = grid;
 
-        rectangle = new Rectangle(simpleGfxGrid.columnToX(col), simpleGfxGrid.rowToY(row), simpleGfxGrid.getCellSize(), simpleGfxGrid.getCellSize());
+        //rectangle = new Rectangle(simpleGfxGrid.columnToX(col), simpleGfxGrid.rowToY(row), simpleGfxGrid.getCellSize(), simpleGfxGrid.getCellSize());
 
         show();
 
@@ -64,7 +64,7 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
     public void show() {
         //rectangle.fill();
         asteroid.draw();
-        xWing.draw();
+        //xWing.draw();
 
 
     }
@@ -75,7 +75,7 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
     @Override
     public void hide() {
         asteroid.delete();
-        xWing.delete();
+        //xWing.delete();
         //rectangle.delete();
     }
 

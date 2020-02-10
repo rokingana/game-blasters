@@ -111,7 +111,7 @@ abstract public class GameObject {
      *  direction the direction to which accelerate
      *  speed     the speed to accelerate at
      */
-
+    /*
     public void move(GridDirection direction, int speed){
 
         // Let's move in the same direction by default
@@ -120,11 +120,18 @@ abstract public class GameObject {
         this.currentPosition = newDirection;
 
         for (int i = grid.getCols(); i < speed; i--) {
-            //getPos().moveInDirection(leftDirection, 1);
-            getPos().moveInDirection(GridDirection.LEFT, 1);
+
+            while (newDirection == GridDirection.LEFT) {
+
+
+                //getPos().moveInDirection(leftDirection, 1);
+                getPos().moveInDirection(GridDirection.LEFT, 1);
+            }
         }
 
     }
+    */
+
 
     /*
     public void accelerate(GridDirection direction, int speed) {
