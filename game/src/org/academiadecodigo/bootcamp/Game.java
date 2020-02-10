@@ -35,8 +35,6 @@ public class Game{
 
         grid.init();
 
-
-
         KeyboardHandler kX = new Xwing2();
         Keyboard k = new Keyboard(kX);
 

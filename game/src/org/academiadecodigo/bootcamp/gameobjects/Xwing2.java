@@ -28,8 +28,16 @@ public class Xwing2 implements KeyboardHandler {
 
     @Override
     public void keyPressed(KeyboardEvent e) {
-        xWingUp.translate(0,10);
-        xWingDown.translate(0,-10);
+
+        if (e.getKey() == KeyboardEvent.KEY_UP) {
+            xWingUp.translate(0, -10);
+        }
+
+        if (e.getKey() == KeyboardEvent.KEY_DOWN) {
+            xWingUp.translate(0, 10);
+        }
+
+        //xWingUp.translate(0,-10);
         //xWingLeft.translate(-10,0);
         //xWingRight.translate(10,0);
     }
