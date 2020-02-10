@@ -48,6 +48,18 @@ public class Game{
         eventUp.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         k.addEventListener(eventUp);
 
+
+        KeyboardEvent eventLeft = new KeyboardEvent();
+        eventLeft.setKey(KeyboardEvent.KEY_LEFT);
+        eventLeft.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        k.addEventListener(eventLeft);
+
+
+        KeyboardEvent eventRight = new KeyboardEvent();
+        eventRight.setKey(KeyboardEvent.KEY_RIGHT);
+        eventRight.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        k.addEventListener(eventRight);
+
         gameObject = new GameObject[numberOfObstacles];
 
         for (int i = 0; i < numberOfObstacles; i++) {
